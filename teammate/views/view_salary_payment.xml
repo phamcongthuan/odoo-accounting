@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_salary_payment_tree" model="ir.ui.view">
+        <field name="name">teammate.salary.payment.tree</field>
+        <field name="model">teammate.salary.payment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="month_year"/>
+                <field name="name"/>
+                <field name="position"/>
+                <field name="total"/>
+                <field name="date_paid"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_teammate_salary_payment_form" model="ir.ui.view">
+        <field name="name">teammate.salary.payment.form</field>
+        <field name="model">teammate.salary.payment</field>
+        <field name="arch" type="xml">
+            <form string="Salary Payment">
+                <sheet>
+                    <group>
+                        <field name="month_year"/>
+                        <field name="name"/>
+                        <field name="position"/>
+                        <field name="base_salary"/>
+                        <field name="project_bonus"/>
+                        <field name="tax"/>
+                        <field name="total"/>
+                        <field name="date_paid"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="salary_payment_action" model="ir.actions.act_window">
+        <field name="name">Salary Payments</field>
+        <field name="res_model">teammate.salary.payment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="salary_payment_menu" name="Salary Payments"
+              parent="member_menu" action="salary_payment_action" groups="base.group_user" />
+
+</odoo>
